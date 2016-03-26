@@ -39,7 +39,7 @@ dscl . -create /Users/$user_name NFSHomeDirectory /Users/$user_name
 
 # Replace with a real password
 dscl . -passwd /Users/$user_name "$password"
-dscl . -create /Users/$user_name PrimaryGroupID $user_name
+dscl . -create /Users/$user_name PrimaryGroupID 20 # standard user, 80 for admin
 dscl . -read /Users/$user_name
 
 # Create the user's home directory plus the .ssh directory
