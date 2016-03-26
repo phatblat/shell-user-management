@@ -47,3 +47,6 @@ mkdir -p /Users/$user_name/.ssh
 chmod 0700 /Users/$user_name/.ssh
 touch /Users/$user_name/.ssh/authorized_keys
 chmod 600 /Users/$user_name/.ssh/authorized_keys
+
+# Grant ownership over user's directories
+chown -R $user_name /Users/$user_name
