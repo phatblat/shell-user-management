@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 #
 # new_group.sh
@@ -18,4 +18,15 @@ group_number=$((group_max_id+1))
 
 # Create the Group
 echo "Creating Group '$group_name' with group id = $group_number"
-sudo dscl . -create /Groups/$group_name PrimaryGroupID $group_number
+#echo "Enter your user password for sudo."
+dscl . -create /Groups/$group_name PrimaryGroupID $group_number
+
+error=$?
+if [ $error -ne 0 ]; then
+  echo ""
+  echo "Your account does not have permission to create groups. Rerun this script using sudo:"
+  echo "  sudo ./new_group.sh $group_name"
+  exit $error
+fi
+
+dscl . -read /Groups/$group_name
