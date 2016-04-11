@@ -34,7 +34,7 @@ fi
 
 dscl . -create /Users/$user_name UserShell /bin/bash
 dscl . -create /Users/$user_name RealName $user_name
-dscl . -create /Users/$user_name UniqueID $usernumber
+dscl . -create /Users/$user_name UniqueID $user_number
 dscl . -create /Users/$user_name NFSHomeDirectory /Users/$user_name
 
 # Replace with a real password
